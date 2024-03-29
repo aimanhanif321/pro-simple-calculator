@@ -2,9 +2,18 @@
 
 import inquirer from "inquirer";
 
-const answer = await inquirer.prompt([
-  { message: "enter your first number", type: "number", name: "firstnumber" },
-  { message: "enter second number", type: "number", name: "secondnumber" },
+const answer = await inquirer.prompt(
+  [
+  { message: "enter your first number",
+   type: "number",
+    name: "firstnumber"
+  },
+
+  { message: "enter second number",
+   type: "number",
+    name: "secondnumber" 
+  },
+
   {
     message: "select one of the oprator",
     type: "list",
@@ -28,3 +37,4 @@ else if(answer.oprator === "division"){
 else{
   console.log("your number is invalid");
 }
+console.log(`the code is end`);
