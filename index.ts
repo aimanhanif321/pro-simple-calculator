@@ -2,6 +2,7 @@
 
 import inquirer from "inquirer";
 
+//use inquirer to ask a numbers
 const answer = await inquirer.prompt(
   [
   { message: "enter your first number",
@@ -18,23 +19,47 @@ const answer = await inquirer.prompt(
     message: "select one of the oprator",
     type: "list",
     name: "oprator",
-    choices: ["Addition", "subtraction", "multiplication", "division"],
+    choices: ["Addition ( + )", "subtraction ( - )", "multiplication ( * )", "division ( / )", "moduleous ( % )"]
   },
 ]);
-if(answer.oprator === "Addition"){
-  console.log("your value is" + answer.firstnumber + answer.secondnumber);
-}
-else if(answer.oprator === "subtraction"){
-  console.log(answer.firstnumber - answer.secondnumber);
-}
-else if(answer.oprator === "multiplication"){
-  console.log(answer.firstnumber * answer.secondnumber);
+const addition = async () => {
+  console.log(`Answer is: ${answer.firstnumber + answer.secondnumber}`)
 }
 
-else if(answer.oprator === "division"){
-  console.log(answer.firstnumber / answer.secondnumber);
+const subtraction = async () => {
+  console.log(`Answer is :${answer.firstnumber - answer.secondnumber}`)
 }
-else{
-  console.log("your number is invalid");
+ 
+const multiplication = async () => {
+  console.log(`Answer is :${answer.firstnumber * answer.secondnumber}`)
 }
-console.log(`the code is end`);
+
+const division = async () => {
+  console.log(`Answer is :${answer.firstnumber / answer.secondnumber}`)
+}
+
+const modulo = async () => {
+  console.log(`Answer is :${answer.firstnumber % answer.secondnumber}`)
+}
+
+
+switch (answer.oprator) {
+  case "Addition":
+    addition();
+    break;
+  case "subtraction":
+    subtraction();
+    break;
+  case "multiplication":
+    multiplication();
+    break;
+  case "division":
+    division();
+    break;
+  case "modulo":
+    modulo();
+    break;
+  default:
+    console.log("invalid oprator");
+    break;
+}
